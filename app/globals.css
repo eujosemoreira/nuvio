@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --nuvio-blue: #1C5FD9;
+    --sky-blue: #3B8BEB;
+    --ice-blue: #E8F1FC;
+    --deep-dark: #0D1B2A;
+    --slate: #1E2D3D;
+    --muted: #7A9AB5;
+    --teal: #0DCFB4;
+    --amber: #F5A623;
+    --success: #2DC78A;
+    --error: #E94F4F;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-dm), sans-serif;
+    color: #0D1B2A;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora), sans-serif;
+  }
+}
+
+@layer components {
+  /* Botão primário */
+  .btn-primary {
+    @apply bg-nuvio-blue text-white font-sora font-semibold px-6 py-3 rounded-xl
+           hover:bg-sky-blue active:scale-95 transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Botão secundário */
+  .btn-secondary {
+    @apply bg-ice-blue text-nuvio-blue font-sora font-semibold px-6 py-3 rounded-xl
+           hover:bg-sky-blue/10 active:scale-95 transition-all duration-150;
+  }
+
+  /* Botão teal */
+  .btn-teal {
+    @apply bg-teal text-white font-sora font-semibold px-6 py-3 rounded-xl
+           hover:opacity-90 active:scale-95 transition-all duration-150;
+  }
+
+  /* Card padrão */
+  .card {
+    @apply bg-white rounded-xl2 border border-ice-blue shadow-card p-6;
+  }
+
+  /* Input padrão */
+  .input {
+    @apply w-full border border-gray-200 rounded-xl px-4 py-3 text-deep-dark
+           font-dm text-sm placeholder:text-muted
+           focus:outline-none focus:ring-2 focus:ring-nuvio-blue/30 focus:border-nuvio-blue
+           transition-all duration-150;
+  }
+
+  /* Label padrão */
+  .label {
+    @apply block text-xs font-dm font-semibold uppercase tracking-wider text-muted mb-1;
+  }
+
+  /* Badge de status */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-dm font-semibold uppercase tracking-wide;
+  }
+
+  /* Sidebar link */
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-muted font-dm text-sm
+           hover:bg-ice-blue hover:text-nuvio-blue transition-all duration-150 cursor-pointer;
+  }
+
+  .nav-link.active {
+    @apply bg-ice-blue text-nuvio-blue font-semibold;
+  }
+
+  /* KPI card */
+  .kpi-card {
+    @apply card flex flex-col gap-1;
+  }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #F8FAFB; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #7A9AB5; }
